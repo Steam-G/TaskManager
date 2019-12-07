@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_Manager", "Test_planirovanie_zadach\Task_Manager.csproj", "{578F11A2-7362-4308-A20E-63E9F95059D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_Manager_2", "Task_Manager_2\Task_Manager_2.csproj", "{C0B569B9-72C0-4630-95DD-4F338D4801F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{578F11A2-7362-4308-A20E-63E9F95059D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{578F11A2-7362-4308-A20E-63E9F95059D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{578F11A2-7362-4308-A20E-63E9F95059D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{578F11A2-7362-4308-A20E-63E9F95059D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0B569B9-72C0-4630-95DD-4F338D4801F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0B569B9-72C0-4630-95DD-4F338D4801F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0B569B9-72C0-4630-95DD-4F338D4801F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0B569B9-72C0-4630-95DD-4F338D4801F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {141E49F0-5FE8-4BC1-8D9C-F3BD399B4D32}
+	EndGlobalSection
+EndGlobal
