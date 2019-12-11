@@ -16,7 +16,7 @@ namespace Task_Manager
     {
         private static System.Timers.Timer aTimer;
         private static List<Zadacha> listZadach = new List<Zadacha>();
-        private static List<Action> myAction = new List<Action> { test_task_1, test_task_2, test_task_3, test_task_4 };
+        private static List<Action> myAction = new List<Action> { test_task_1, test_task_2, test_task_3, test_task_4 }; //надо вывести отдельно в класс работы с событиями
 
 
 
@@ -62,6 +62,11 @@ namespace Task_Manager
            
         }
 
+        /// <summary>
+        /// Функция активации события по времени из объекта List<Zadacha>
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="e"></param>
         private static void OnTimedEvent(Object source, ElapsedEventArgs e)
         { 
             DateTime tt = DateTime.Now;
@@ -70,6 +75,7 @@ namespace Task_Manager
             {
                 switch (listZadach[i].TipZapuska)
                 {
+                    // Тип запуска: однократно в определенное времени
                     case 1:
                         if (
                         tt.Date.Year == listZadach[i].DateTime.Year &&
@@ -88,6 +94,7 @@ namespace Task_Manager
                         }
                         break;
 
+                    // Тип запуска: каждый день в указанное время
                     case 2:
                         if (
                         tt.TimeOfDay.Hours == listZadach[i].DateTime.TimeOfDay.Hours &&
@@ -102,6 +109,7 @@ namespace Task_Manager
                         }
                         break;
 
+                    // Тип запуска: по дням недели в указанное время
                     case 3:
                         if (
                         (int)tt.Date.DayOfWeek == listZadach[i].DayOfWeek &&
@@ -117,6 +125,7 @@ namespace Task_Manager
                         }
                         break;
 
+                    // Тип запуска: каждый месяц в определенное число в указанное время
                     case 4:
                         if (
                         tt.Date.Day == listZadach[i].DateTime.Day &&
@@ -149,7 +158,10 @@ namespace Task_Manager
             }
         }
 
-        //Создать функцию процесса!!!
+        #region Набор событий для теста
+
+        // События просто вызывают окно с сообщением
+
         private static void ShowMessages (ElapsedEventArgs e, string nameZadacha)
         {
             string result = string.Format("{0:HH:mm:ss.fff}", e.SignalTime); // форматирование строки
@@ -175,7 +187,8 @@ namespace Task_Manager
         {
             MessageBox.Show("Это четвертый процесс", "Четвертый процесс", MessageBoxButtons.OK, MessageBoxIcon.Question);
         }
-
+        
+        #endregion
 
 
 
@@ -190,6 +203,7 @@ namespace Task_Manager
             });
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = listZadach;
+            dataGridView1.Invalidate();
         }
 
         

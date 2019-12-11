@@ -29,9 +29,11 @@ namespace Test_planirovanie_zadach
 
 
             }
-            // Create a timer with a two second interval.
+
+            // Таймер
+            // Создаем таймер с интервалом в 1 секунду.
             aTimer = new System.Timers.Timer(1000);
-            // Hook up the Elapsed event for the timer. 
+            // Подключаем событие Elapsed к таймеру. 
             aTimer.Elapsed += elapsedEventHandler;
             aTimer.AutoReset = true;
             aTimer.Enabled = true;
