@@ -18,18 +18,37 @@ namespace Task_Manager
         private static List<Zadacha> listZadach = new List<Zadacha>();
         private static List<Action> myAction = new List<Action> { test_task_1, test_task_2, test_task_3, test_task_4 }; //надо вывести отдельно в класс работы с событиями
 
-
+        TaskManagerProcessor taskManager = new TaskManagerProcessor();
 
         public Form1()
         {
             InitializeComponent();
 
-            SetTimer(OnTimedEvent);
+            for (int i = 0; i < 4; i++)
+            {
+                DateTime tt_now = DateTime.Now;
+                tt_now = tt_now.AddMinutes(i + 1);
+                listZadach.Add(new Zadacha()
+                {
+                    NameZadacha = (string)("Событие по списку №" + i),
+                    TaskName = (string)("test_task_" + (i)),
+                    DateTime = tt_now,
+                    TipZapuska = 2
+                });
+            }
 
-            TimerCallback tcb = systemclock;
-            System.Threading.Timer tm_cl = new System.Threading.Timer(tcb, null, 0, 1000);
+            // Проверка класса TaskManagerProcessor
+            taskManager.ListZadach = listZadach;
+            taskManager.Actions = myAction;
+            taskManager.Start();
 
-            Zadacha zadacha = new Zadacha();
+
+            //SetTimer(OnTimedEvent);
+
+            //TimerCallback tcb = systemclock;
+            //System.Threading.Timer tm_cl = new System.Threading.Timer(tcb, null, 0, 1000);
+
+            //Zadacha zadacha = new Zadacha();
 
             dataGridView1.DataSource = listZadach;
             taskManagerControl1.ListTasks = myAction;
@@ -39,19 +58,7 @@ namespace Task_Manager
         private static void SetTimer(ElapsedEventHandler elapsedEventHandler)
         {
             
-            for (int i = 0; i < 4; i++)
-            {
-                DateTime tt_now = DateTime.Now;
-                tt_now = tt_now.AddMinutes(i+1);
-                listZadach.Add(new Zadacha() {
-                    NameZadacha = (string)("Событие по списку №" + i),
-                    TaskName = (string)("test_task_" + (4-i)),
-                    DateTime = tt_now,
-                    TipZapuska = 2
-                });
-
-
-            }
+            
             // Create a timer with a two second interval.
             aTimer = new System.Timers.Timer(1000);
             // Hook up the Elapsed event for the timer. 
