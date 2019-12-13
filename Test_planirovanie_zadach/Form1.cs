@@ -18,6 +18,7 @@ namespace Task_Manager
         private static List<Zadacha> listZadach = new List<Zadacha>();
         private static List<Action> myAction = new List<Action> { test_task_1, test_task_2, test_task_3, test_task_4 }; //надо вывести отдельно в класс работы с событиями
 
+        // Этот класс будет запускать события по времени 
         TaskManagerProcessor taskManager = new TaskManagerProcessor();
 
         public Form1()

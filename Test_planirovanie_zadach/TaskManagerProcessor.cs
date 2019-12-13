@@ -78,6 +78,7 @@ namespace Task_Manager
                         }
                         break;
 
+                    // Тип запуска: каждый день в указанное время
                     case 2:
                         if (
                         tt.TimeOfDay.Hours == _ListZadach[i].DateTime.TimeOfDay.Hours &&
@@ -98,6 +99,7 @@ namespace Task_Manager
                         }
                         break;
 
+                    // Тип запуска: по дням недели в указанное время
                     case 3:
                         if (
                         (int)tt.Date.DayOfWeek == _ListZadach[i].DayOfWeek &&
@@ -119,6 +121,7 @@ namespace Task_Manager
                         }
                         break;
 
+                    // Тип запуска: каждый месяц в определенное число в указанное время
                     case 4:
                         if (
                         tt.Date.Day == _ListZadach[i].DateTime.Day &&
